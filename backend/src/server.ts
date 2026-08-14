@@ -1,17 +1,26 @@
 import express from "express";
+import healthRouter from "./routes/health.routes";
+import "./config/database";
 
 const app = express();
 
 const PORT = 5000;
 
+app.use(express.json());
+app.use("/health", healthRouter);
+
+
 app.get("/", (req, res) => {
   res.send("Welcome to VertexLearn AI Backend!");
 });
-app.get("/health",(req,res)=>{
-    res.json({
-        status:"OK",
-        message:"Vertexlearn-AI backend is learning"
-    });
+
+app.post("/test", (req, res) => {
+  console.log(req.body);
+
+  res.json({
+    message: "Data received successfully",
+    data: req.body
+  });
 });
 
 app.listen(PORT, () => {
