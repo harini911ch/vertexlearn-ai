@@ -3,6 +3,7 @@ import { Router } from "express";
 import pool from "../config/database";
 import { generateToken } from "../utils/jwt";
 import { authenticateToken } from "../middleware/auth.middleware";
+import { authorizeRoles } from "../middleware/role.middleware";
 
 const router = Router();
 
@@ -84,4 +85,28 @@ const user = req.user;
   }
 });
 
+
+router.get(
+  "/student-only",
+  authenticateToken,
+  authorizeRoles("student"),
+  (req, res) => {
+    return res.status(200).json({
+      success: true,
+      message: "Welcome student! You have access to this route."
+    });
+  }
+);
+
+router.get(
+  "/instructor-only",
+  authenticateToken,
+  authorizeRoles("instructor"),
+  (req, res) => {
+    return res.status(200).json({
+      success: true,
+      message: "Welcome instructor! You have access to this route."
+    });
+  }
+);
 export default router;
