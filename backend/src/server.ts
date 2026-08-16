@@ -1,6 +1,7 @@
 import express from "express";
 import healthRouter from "./routes/health.routes";
 import usersRouter from "./routes/users.routes";
+import authRouter from "./routes/auth.routes";
 import pool from "./config/database";
 
 const app = express();
@@ -10,6 +11,7 @@ const PORT = 5000;
 app.use(express.json());
 app.use("/health", healthRouter);
 app.use("/api/users", usersRouter);
+app.use("/api/auth", authRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome to VertexLearn AI Backend!");
