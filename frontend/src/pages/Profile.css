@@ -1,0 +1,151 @@
+.profile-page {
+  min-height: 100vh;
+  padding: 40px 24px;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(255, 196, 220, 0.35),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 80%,
+      rgba(180, 220, 255, 0.35),
+      transparent 30%
+    ),
+    linear-gradient(135deg, #fff8fc, #eef7ff);
+}
+
+.profile-container {
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.profile-back-button {
+  border: none;
+  background: rgba(255, 255, 255, 0.75);
+  color: #536987;
+  padding: 10px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  margin-bottom: 24px;
+  transition: 0.2s ease;
+}
+
+.profile-back-button:hover {
+  transform: translateX(-3px);
+  background: white;
+}
+
+.profile-card {
+  padding: 42px;
+  text-align: center;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 25px 60px rgba(82, 102, 130, 0.12);
+  backdrop-filter: blur(18px);
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  margin: 0 auto 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f7cde0, #cfe5ff);
+  color: #536987;
+  font-size: 34px;
+  font-weight: 800;
+}
+
+.profile-eyebrow {
+  margin: 0;
+  color: #8a79aa;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+}
+
+.profile-card h1 {
+  margin: 8px 0 6px;
+  color: #293a56;
+  font-size: 32px;
+}
+
+.profile-subtitle {
+  margin: 0 0 28px;
+  color: #7d8ba0;
+}
+
+.profile-details {
+  display: grid;
+  gap: 12px;
+  text-align: left;
+}
+
+.profile-detail {
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(248, 250, 255, 0.8);
+}
+
+.profile-detail span {
+  display: block;
+  margin-bottom: 5px;
+  color: #8a95a7;
+  font-size: 12px;
+}
+
+.profile-detail strong {
+  color: #33445f;
+  font-size: 15px;
+}
+
+.profile-role {
+  text-transform: capitalize;
+}
+
+.profile-dashboard-button {
+  margin-top: 26px;
+  width: 100%;
+  border: none;
+  padding: 14px 20px;
+  border-radius: 14px;
+  cursor: pointer;
+  color: white;
+  font-size: 14px;
+  font-weight: 800;
+  background: linear-gradient(135deg, #9670da, #6b9ef0);
+  box-shadow: 0 12px 25px rgba(107, 158, 240, 0.22);
+  transition: 0.2s ease;
+}
+
+.profile-dashboard-button:hover {
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .profile-page {
+    padding: 24px 16px;
+  }
+
+  .profile-card {
+    padding: 28px 20px;
+  }
+
+  .profile-card h1 {
+    font-size: 26px;
+  }
+}
+.profile-error {
+  margin-bottom: 18px;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(255, 235, 240, 0.9);
+  color: #b85d72;
+  font-size: 13px;
+  font-weight: 600;
+}

@@ -1,0 +1,843 @@
+* {
+  box-sizing: border-box;
+}
+
+.vl-instructor-courses-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  padding: 24px 34px 50px;
+
+  background:
+    radial-gradient(
+      circle at 8% 10%,
+      rgba(96, 165, 250, 0.20),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 92% 12%,
+      rgba(129, 140, 248, 0.18),
+      transparent 25%
+    ),
+    radial-gradient(
+      circle at 52% 100%,
+      rgba(125, 211, 252, 0.18),
+      transparent 30%
+    ),
+    linear-gradient(
+      135deg,
+      #edf9ff,
+      #f3f7ff 48%,
+      #f1efff
+    );
+}
+
+.vl-instructor-bg {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.vl-instructor-bg-1 {
+  width: 280px;
+  height: 280px;
+  left: -100px;
+  top: 120px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(96, 165, 250, 0.20),
+      transparent 72%
+    );
+
+  animation: instructorBubble1 10s ease-in-out infinite;
+}
+
+.vl-instructor-bg-2 {
+  width: 220px;
+  height: 220px;
+  right: -80px;
+  bottom: 150px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(129, 140, 248, 0.18),
+      transparent 72%
+    );
+
+  animation: instructorBubble2 12s ease-in-out infinite;
+}
+
+.vl-instructor-bg-3 {
+  width: 95px;
+  height: 95px;
+  right: 30%;
+  top: 8%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(125, 211, 252, 0.18),
+      transparent 72%
+    );
+
+  animation: instructorBubble3 8s ease-in-out infinite;
+}
+
+.vl-instructor-topbar {
+  position: relative;
+  z-index: 5;
+
+  max-width: 1250px;
+  margin: 0 auto 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 17px 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.75);
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.66);
+
+  box-shadow:
+    0 12px 30px rgba(37, 99, 235, 0.07);
+
+  backdrop-filter: blur(18px);
+}
+
+.vl-instructor-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vl-instructor-logo {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #6366f1
+    );
+
+  color: white;
+  font-size: 18px;
+
+  box-shadow:
+    0 8px 20px rgba(59, 130, 246, 0.20);
+}
+
+.vl-instructor-brand strong {
+  display: block;
+
+  color: #193b69;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.vl-instructor-brand span {
+  display: block;
+  margin-top: 2px;
+
+  color: #7a8da5;
+  font-size: 11px;
+}
+
+.vl-instructor-logout {
+  padding: 10px 16px;
+
+  border: 1px solid #d5dfeb;
+  border-radius: 11px;
+
+  background: rgba(255, 255, 255, 0.80);
+
+  color: #47627f;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vl-instructor-logout:hover {
+  border-color: #93c5fd;
+  transform: translateY(-1px);
+}
+
+.vl-instructor-main {
+  position: relative;
+  z-index: 3;
+
+  width: min(1250px, 100%);
+  margin: 0 auto;
+}
+
+.vl-instructor-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+
+  margin-bottom: 28px;
+  padding: 32px 34px;
+
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.78),
+      rgba(231, 242, 255, 0.72)
+    );
+
+  box-shadow:
+    0 20px 50px rgba(37, 99, 235, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  animation: instructorAppear 0.65s ease-out both;
+}
+
+.vl-instructor-kicker,
+.vl-courses-section-heading span,
+.vl-create-course-heading span {
+  color: #3b82f6;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.vl-instructor-hero h1 {
+  margin: 8px 0 10px;
+
+  color: #193d70;
+
+  font-size: clamp(31px, 4vw, 48px);
+  line-height: 1.02;
+
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.vl-instructor-hero p {
+  max-width: 700px;
+  margin: 0;
+
+  color: #667c95;
+
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.vl-create-course-button,
+.vl-no-courses button {
+  flex-shrink: 0;
+
+  padding: 13px 18px;
+
+  border: none;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2877ee,
+      #6366f1
+    );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(37, 99, 235, 0.17);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vl-create-course-button:hover,
+.vl-no-courses button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 15px 30px rgba(37, 99, 235, 0.23);
+}
+
+.vl-instructor-error,
+.vl-instructor-success {
+  margin-bottom: 20px;
+
+  padding: 12px 15px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+}
+
+.vl-instructor-error {
+  border: 1px solid rgba(239, 68, 68, 0.18);
+  background: #fff4f4;
+  color: #b91c1c;
+}
+
+.vl-instructor-success {
+  border: 1px solid rgba(34, 197, 94, 0.18);
+  background: #f0fdf4;
+  color: #15803d;
+}
+
+.vl-create-course-card {
+  margin-bottom: 30px;
+
+  padding: 28px;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.82);
+
+  background: rgba(255, 255, 255, 0.76);
+
+  box-shadow:
+    0 18px 45px rgba(37, 99, 235, 0.08);
+
+  backdrop-filter: blur(18px);
+
+  animation: instructorAppear 0.5s ease-out both;
+}
+
+.vl-create-course-heading {
+  margin-bottom: 22px;
+}
+
+.vl-create-course-heading h2 {
+  margin: 7px 0;
+
+  color: #25476f;
+
+  font-size: 25px;
+}
+
+.vl-create-course-heading p {
+  margin: 0;
+
+  color: #7b8ea7;
+
+  font-size: 13px;
+}
+
+.vl-course-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 16px;
+}
+
+.vl-course-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.vl-course-field.full {
+  grid-column: 1 / -1;
+}
+
+.vl-course-field label {
+  color: #405a78;
+
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.vl-course-field input,
+.vl-course-field textarea,
+.vl-course-field select {
+  width: 100%;
+
+  border: 1px solid #ccdae9;
+  border-radius: 12px;
+
+  outline: none;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  color: #1f3045;
+
+  padding: 12px 13px;
+
+  font-family: inherit;
+  font-size: 13px;
+
+  resize: vertical;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vl-course-field input,
+.vl-course-field select {
+  height: 46px;
+}
+
+.vl-course-field input::placeholder,
+.vl-course-field textarea::placeholder {
+  color: #9aabc0;
+}
+
+.vl-course-field input:focus,
+.vl-course-field textarea:focus,
+.vl-course-field select:focus {
+  border-color: #5c9af4;
+
+  box-shadow:
+    0 0 0 4px rgba(59, 130, 246, 0.08);
+}
+
+.vl-submit-course-button {
+  width: 100%;
+
+  height: 48px;
+
+  margin-top: 20px;
+
+  border: none;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2877ee,
+      #6366f1
+    );
+
+  color: white;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 750;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 9px 22px rgba(37, 99, 235, 0.16);
+}
+
+.vl-submit-course-button:disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+.vl-courses-section {
+  padding: 28px;
+
+  border-radius: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.78);
+
+  background:
+    rgba(255, 255, 255, 0.70);
+
+  box-shadow:
+    0 18px 45px rgba(37, 99, 235, 0.07);
+
+  backdrop-filter: blur(18px);
+
+  animation: instructorAppear 0.7s 0.12s ease-out both;
+}
+
+.vl-courses-section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin-bottom: 22px;
+}
+
+.vl-courses-section-heading h2 {
+  margin: 7px 0 0;
+
+  color: #25476f;
+
+  font-size: 25px;
+}
+
+.vl-courses-section-heading strong {
+  min-width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dbeafe,
+      #e0e7ff
+    );
+
+  color: #2563eb;
+
+  font-size: 15px;
+}
+
+.vl-course-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 16px;
+}
+
+.vl-course-card {
+  position: relative;
+
+  min-height: 255px;
+
+  padding: 20px;
+
+  text-align: left;
+
+  border: 1px solid #d9e5f1;
+  border-radius: 18px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.94),
+      rgba(243, 248, 255, 0.91)
+    );
+
+  color: inherit;
+
+  font-family: inherit;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(37, 99, 235, 0.045);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.vl-course-card:hover {
+  transform: translateY(-5px);
+
+  border-color: #a9c9ec;
+
+  box-shadow:
+    0 16px 35px rgba(37, 99, 235, 0.10);
+}
+
+.vl-course-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 17px;
+}
+
+.vl-course-course-icon {
+  width: 40px;
+  height: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dbeafe,
+      #e0e7ff
+    );
+
+  font-size: 17px;
+}
+
+.vl-course-status {
+  padding: 6px 9px;
+
+  border-radius: 999px;
+
+  font-size: 10px;
+
+  font-weight: 800;
+
+  text-transform: capitalize;
+}
+
+.vl-course-status.published {
+  background: #ecfdf5;
+  color: #15803d;
+}
+
+.vl-course-status.pending {
+  background: #fff7ed;
+  color: #c2410c;
+}
+
+.vl-course-card h3 {
+  margin: 0 0 9px;
+
+  color: #274a73;
+
+  font-size: 18px;
+
+  line-height: 1.3;
+}
+
+.vl-course-card p {
+  margin: 0;
+
+  color: #788aa2;
+
+  font-size: 12.5px;
+
+  line-height: 1.65;
+
+  display: -webkit-box;
+
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+
+  -webkit-box-orient: vertical;
+
+  overflow: hidden;
+}
+
+.vl-course-meta {
+  display: flex;
+  gap: 14px;
+
+  margin-top: 17px;
+
+  color: #627790;
+
+  font-size: 11.5px;
+
+  font-weight: 650;
+}
+
+.vl-course-open {
+  position: absolute;
+
+  left: 20px;
+  right: 20px;
+  bottom: 17px;
+
+  padding-top: 13px;
+
+  border-top: 1px solid #e2eaf2;
+
+  color: #2563eb;
+
+  font-size: 12px;
+
+  font-weight: 750;
+}
+
+.vl-no-courses {
+  padding: 55px 25px;
+
+  text-align: center;
+}
+
+.vl-no-courses-icon {
+  width: 58px;
+  height: 58px;
+
+  margin: 0 auto 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 17px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #dbeafe,
+      #e0e7ff
+    );
+
+  color: #2563eb;
+
+  font-size: 26px;
+}
+
+.vl-no-courses h3 {
+  margin: 0 0 7px;
+
+  color: #274a73;
+
+  font-size: 20px;
+}
+
+.vl-no-courses p {
+  max-width: 500px;
+
+  margin: 0 auto 20px;
+
+  color: #7a8da5;
+
+  font-size: 13px;
+
+  line-height: 1.65;
+}
+
+.vl-instructor-loading {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #416487;
+
+  font-size: 15px;
+}
+
+
+/* =========================================================
+   ANIMATIONS
+   ========================================================= */
+
+@keyframes instructorAppear {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes instructorBubble1 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(25px, 22px);
+  }
+}
+
+@keyframes instructorBubble2 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(-25px, -22px);
+  }
+}
+
+@keyframes instructorBubble3 {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+
+  50% {
+    transform: translate(15px, 18px);
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+@media (max-width: 1000px) {
+  .vl-instructor-courses-page {
+    padding: 20px;
+  }
+
+  .vl-course-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .vl-instructor-courses-page {
+    padding: 12px;
+  }
+
+  .vl-instructor-topbar {
+    padding: 14px;
+  }
+
+  .vl-instructor-hero {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .vl-course-form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vl-course-field.full {
+    grid-column: auto;
+  }
+
+  .vl-course-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .vl-courses-section,
+  .vl-create-course-card {
+    padding: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vl-instructor-courses-page *,
+  .vl-instructor-courses-page *::before,
+  .vl-instructor-courses-page *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

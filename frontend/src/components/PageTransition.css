@@ -1,0 +1,13 @@
+.page-transition {
+  opacity: 0;
+  transform: translateY(10px);
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
+  min-height: 100vh;
+}
+
+.page-transition-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

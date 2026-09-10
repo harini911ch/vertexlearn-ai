@@ -6,7 +6,7 @@ if (!JWT_SECRET) {
   throw new Error("JWT_SECRET is not defined");
 }
 
-export const generateToken = (userId: number, role: string) => {
+export const generateToken = (userId: string, role: string) => {
   return jwt.sign(
     {
       userId,

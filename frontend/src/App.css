@@ -1,0 +1,335 @@
+/* =========================================================
+   GLOBAL APP LAYOUT
+========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+/* =========================================================
+   MAIN CONTENT AREA BESIDE FIXED NAVBAR
+========================================================= */
+
+.app-with-navbar {
+  min-height: 100vh;
+  width: calc(100% - 250px);
+  margin-left: 250px;
+  position: relative;
+}
+
+/*
+  Prevent individual pages from using 100vw and
+  extending underneath the fixed sidebar.
+*/
+.app-with-navbar > * {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* Common full-page layouts */
+.app-with-navbar .dashboard-page,
+.app-with-navbar .course-details-page,
+.app-with-navbar .profile-page,
+.app-with-navbar .lecture-page,
+.app-with-navbar .ai-tutor-page,
+.app-with-navbar .student-progress-page,
+.app-with-navbar .student-assignments-page,
+.app-with-navbar .student-quizzes-page,
+.app-with-navbar .study-plan-page {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+/* =========================================================
+   IMPORTANT: REMOVE 100vw OVERFLOW FROM PAGE CHILDREN
+========================================================= */
+
+.app-with-navbar main,
+.app-with-navbar header,
+.app-with-navbar section {
+  max-width: 100%;
+}
+
+/* =========================================================
+   TABLETS
+========================================================= */
+
+@media (max-width: 900px) {
+  .app-with-navbar {
+    width: calc(100% - 215px);
+    margin-left: 215px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .app-with-navbar {
+    width: 100%;
+    margin-left: 0;
+    padding-bottom: 78px;
+  }
+
+  .app-with-navbar > * {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+/* =========================================================
+   FINAL UI POLISH - COURSE DETAILS
+   ========================================================= */
+
+.course-details-page {
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 12% 15%, rgba(255, 205, 225, 0.35), transparent 30%),
+    radial-gradient(circle at 88% 80%, rgba(190, 225, 255, 0.35), transparent 30%),
+    linear-gradient(135deg, #fff8fc 0%, #f2f8ff 100%);
+}
+
+.course-details-content {
+  animation: coursePageReveal 0.65s ease both;
+}
+
+.course-back-button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.course-back-button:hover {
+  transform: translateX(-4px);
+}
+
+.course-hero {
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.course-hero:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 45px rgba(90, 110, 145, 0.13);
+}
+
+.course-hero-content {
+  animation: courseHeroReveal 0.7s ease 0.1s both;
+}
+
+.course-hero-tags span {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.course-hero-tags span:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(90, 110, 145, 0.1);
+}
+
+.module-card {
+  animation: moduleReveal 0.55s ease both;
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.module-card:nth-child(1) {
+  animation-delay: 0.15s;
+}
+
+.module-card:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.module-card:nth-child(3) {
+  animation-delay: 0.35s;
+}
+
+.module-card:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.module-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(90, 110, 145, 0.1);
+}
+
+.lecture-item {
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lecture-item:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 8px 18px rgba(90, 110, 145, 0.07);
+}
+
+.lecture-item button,
+.assignment-card button {
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lecture-item button:hover,
+.assignment-card button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(100, 120, 160, 0.16);
+}
+
+.section-card {
+  animation: sectionReveal 0.6s ease 0.35s both;
+}
+
+.assignment-card {
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.assignment-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(90, 110, 145, 0.1);
+}
+
+.course-page-loading,
+.course-error-card {
+  animation: coursePageReveal 0.5s ease both;
+}
+
+/* Soft floating background circles */
+
+.course-details-page::before,
+.course-details-page::after {
+  content: "";
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.course-details-page::before {
+  width: 220px;
+  height: 220px;
+  top: 10%;
+  right: -90px;
+  background: rgba(210, 225, 255, 0.28);
+  animation: floatBubble 7s ease-in-out infinite;
+}
+
+.course-details-page::after {
+  width: 170px;
+  height: 170px;
+  bottom: 8%;
+  left: -70px;
+  background: rgba(255, 215, 232, 0.25);
+  animation: floatBubble 9s ease-in-out infinite reverse;
+}
+
+/* Keep content above decorative bubbles */
+
+.course-details-content,
+.dashboard-header {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes coursePageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes courseHeroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.985);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes moduleReveal {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes sectionReveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes floatBubble {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .course-details-page *,
+  .course-details-page::before,
+  .course-details-page::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

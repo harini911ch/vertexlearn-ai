@@ -1,0 +1,538 @@
+/* =========================================================
+   ADMIN USERS PAGE
+   ========================================================= */
+
+.admin-page {
+  min-height: 100vh;
+  padding: 40px;
+  background:
+    radial-gradient(
+      circle at 0% 0%,
+      rgba(115, 87, 217, 0.12),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 100% 10%,
+      rgba(237, 124, 165, 0.10),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #f7f8ff 0%,
+      #faf9ff 45%,
+      #fff8fc 100%
+    );
+  color: #292e43;
+}
+
+/* =========================================================
+   TOP HEADER
+   ========================================================= */
+
+.admin-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+
+  margin-bottom: 28px;
+  padding: 28px 30px;
+
+  background: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(219, 215, 239, 0.85);
+  border-radius: 22px;
+
+  box-shadow:
+    0 12px 35px rgba(71, 62, 111, 0.08);
+
+  backdrop-filter: blur(10px);
+}
+
+.admin-eyebrow {
+  margin: 0 0 8px;
+
+  color: #745bd6;
+
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1.7px;
+  text-transform: uppercase;
+}
+
+.admin-page-header h1 {
+  margin: 0;
+
+  color: #252a3d;
+
+  font-size: 34px;
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.admin-page-subtitle {
+  margin: 9px 0 0;
+
+  color: #7b8094;
+
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   BACK BUTTON
+   ========================================================= */
+
+.admin-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 11px 17px;
+
+  border: 1px solid #dedbeb;
+  border-radius: 11px;
+
+  background: #ffffff;
+
+  color: #555a70;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.admin-secondary-btn:hover {
+  transform: translateY(-2px);
+
+  border-color: #cfc5fa;
+
+  background: #fbfaff;
+
+  box-shadow:
+    0 8px 20px rgba(74, 62, 125, 0.10);
+}
+
+/* =========================================================
+   ERROR
+   ========================================================= */
+
+.admin-error-box {
+  margin-bottom: 20px;
+  padding: 14px 18px;
+
+  border: 1px solid #f7c7d4;
+  border-radius: 12px;
+
+  background: #fff1f5;
+
+  color: #c84d68;
+
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* =========================================================
+   MAIN USERS CARD
+   ========================================================= */
+
+.admin-management-card {
+  overflow: hidden;
+
+  background: rgba(255, 255, 255, 0.95);
+
+  border: 1px solid #e4e4ef;
+  border-radius: 22px;
+
+  box-shadow:
+    0 15px 40px rgba(48, 45, 78, 0.07);
+}
+
+/* =========================================================
+   CARD HEADER
+   ========================================================= */
+
+.admin-management-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  padding: 24px 28px;
+
+  border-bottom: 1px solid #ececf4;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(244, 242, 255, 0.95),
+      rgba(255, 248, 252, 0.95)
+    );
+}
+
+.admin-management-heading h2 {
+  margin: 0;
+
+  color: #292e43;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.admin-management-heading p {
+  margin: 5px 0 0;
+
+  color: #8a8ea1;
+
+  font-size: 13px;
+}
+
+/* =========================================================
+   REFRESH BUTTON
+   ========================================================= */
+
+.admin-refresh-btn {
+  padding: 9px 15px;
+
+  border: 1px solid #d9d1fb;
+  border-radius: 10px;
+
+  background: #f3f0ff;
+
+  color: #6c55d3;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-refresh-btn:hover {
+  transform: translateY(-1px);
+
+  background: #ebe6ff;
+
+  box-shadow:
+    0 7px 17px rgba(102, 81, 196, 0.10);
+}
+
+/* =========================================================
+   TABLE WRAPPER
+   ========================================================= */
+
+.admin-table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+/* =========================================================
+   TABLE
+   ========================================================= */
+
+.admin-data-table {
+  width: 100%;
+  min-width: 900px;
+
+  table-layout: fixed;
+
+  border-collapse: collapse;
+}
+
+/* ---------------------------------------------------------
+   COLUMN WIDTHS
+   --------------------------------------------------------- */
+
+.admin-data-table th:nth-child(1),
+.admin-data-table td:nth-child(1) {
+  width: 20%;
+}
+
+.admin-data-table th:nth-child(2),
+.admin-data-table td:nth-child(2) {
+  width: 25%;
+}
+
+.admin-data-table th:nth-child(3),
+.admin-data-table td:nth-child(3) {
+  width: 15%;
+}
+
+.admin-data-table th:nth-child(4),
+.admin-data-table td:nth-child(4) {
+  width: 15%;
+}
+
+.admin-data-table th:nth-child(5),
+.admin-data-table td:nth-child(5) {
+  width: 12%;
+}
+
+.admin-data-table th:nth-child(6),
+.admin-data-table td:nth-child(6) {
+  width: 13%;
+}
+
+/* =========================================================
+   TABLE HEADER
+   ========================================================= */
+
+.admin-data-table th {
+  padding: 14px 18px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  background: #f8f7fd;
+
+  border-bottom: 1px solid #e7e5f0;
+
+  color: #747990;
+
+  font-size: 11px;
+  font-weight: 800;
+
+  letter-spacing: 0.9px;
+
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* =========================================================
+   TABLE ROWS
+   ========================================================= */
+
+.admin-data-table td {
+  padding: 18px;
+
+  text-align: left;
+  vertical-align: middle;
+
+  background: #ffffff;
+
+  border-bottom: 1px solid #eff0f5;
+
+  color: #5b6073;
+
+  font-size: 14px;
+}
+
+.admin-data-table tbody tr {
+  transition:
+    background 0.18s ease;
+}
+
+.admin-data-table tbody tr:hover td {
+  background: #fcfbff;
+}
+
+.admin-data-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* =========================================================
+   NAME
+   ========================================================= */
+
+.admin-data-table td:first-child strong {
+  display: block;
+
+  color: #292e43;
+
+  font-size: 14px;
+  font-weight: 750;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   EMAIL
+   ========================================================= */
+
+.admin-data-table td:nth-child(2) {
+  color: #666b7f;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* =========================================================
+   ROLE SELECT
+   ========================================================= */
+
+.admin-role-select {
+  width: 118px;
+
+  padding: 9px 11px;
+
+  border: 1px solid #dcdde8;
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: #555a70;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  outline: none;
+
+  cursor: pointer;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.admin-role-select:hover {
+  border-color: #cfc7f6;
+}
+
+.admin-role-select:focus {
+  border-color: #8b76df;
+
+  box-shadow:
+    0 0 0 3px rgba(139, 118, 223, 0.12);
+}
+
+/* =========================================================
+   STATUS
+   ========================================================= */
+
+.admin-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 70px;
+
+  padding: 6px 11px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  white-space: nowrap;
+}
+
+.admin-status.active {
+  background: #e7f8ef;
+  color: #188456;
+}
+
+.admin-status.inactive {
+  background: #fff0f3;
+  color: #d34c69;
+}
+
+/* =========================================================
+   ACTION BUTTON
+   ========================================================= */
+
+.admin-action-btn {
+  min-width: 88px;
+
+  padding: 9px 13px;
+
+  border: none;
+  border-radius: 10px;
+
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.admin-action-btn.danger {
+  background: linear-gradient(
+    135deg,
+    #e96d87,
+    #df5d79
+  );
+
+  box-shadow:
+    0 6px 14px rgba(226, 91, 121, 0.18);
+}
+
+.admin-action-btn.success {
+  background: linear-gradient(
+    135deg,
+    #48ad7b,
+    #399d6c
+  );
+
+  box-shadow:
+    0 6px 14px rgba(55, 157, 108, 0.17);
+}
+
+.admin-action-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.94;
+}
+
+/* =========================================================
+   LOADING / EMPTY
+   ========================================================= */
+
+.admin-loading-state,
+.admin-empty-state {
+  padding: 65px 20px;
+
+  text-align: center;
+
+  color: #8a8ea1;
+
+  font-size: 14px;
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .admin-page {
+    padding: 22px 16px;
+  }
+
+  .admin-page-header {
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding: 23px;
+  }
+
+  .admin-page-header h1 {
+    font-size: 28px;
+  }
+
+  .admin-secondary-btn {
+    width: 100%;
+  }
+
+  .admin-management-heading {
+    padding: 20px;
+  }
+}

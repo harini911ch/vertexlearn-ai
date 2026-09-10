@@ -1,0 +1,19 @@
+CREATE TABLE IF NOT EXISTS certificates (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+    course_id UUID NOT NULL REFERENCES courses(id) ON DELETE CASCADE,
+    certificate_number VARCHAR(100) UNIQUE NOT NULL,
+    issued_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+    certificate_url TEXT
+);
+
+ALTER TABLE certificates
+ADD COLUMN IF NOT EXISTS status VARCHAR(20) NOT NULL DEFAULT 'pending';
+
+ALTER TABLE certificates
+ADD COLUMN IF NOT EXISTS approved_by UUID
+REFERENCES users(id)
+ON DELETE SET NULL;
+
+ALTER TABLE certificates
+ADD COLUMN IF NOT EXISTS approved_at TIMESTAMP WITH TIME ZONE;
