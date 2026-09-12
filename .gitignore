@@ -8,3 +8,8 @@ dist/
 build/
 coverage/
 *.log
+# Local uploaded files
+backend/uploads/
+
+# Local database backup
+backend/vertexlearn_backup.sql
